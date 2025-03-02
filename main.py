@@ -3,6 +3,7 @@ import praw
 import prawcore.exceptions
 from dotenv import load_dotenv
 
+
 load_dotenv()
 REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
 REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
@@ -21,11 +22,14 @@ def fetch_latest_posts(subreddit_name):
             password=REDDIT_PASSWORD
         )
 
-        assert reddit.user.me(), "❌ Authentication failed: Invalid Client ID or Secret. Please check your credentials."
-        print(f"\n✅ Successfully authenticated as: {reddit.user.me()}")
+        user = reddit.user.me()
+        if not user:
+            raise Exception("❌ Authentication failed: Invalid credentials.")
+        print(f"\n✅ Successfully authenticated as: {user}\n")
 
         print(f"\nFetching latest 5 posts from r/{subreddit_name}...\n")
         subreddit = reddit.subreddit(subreddit_name)
+
         for post in subreddit.new(limit=5):
             print(f"🔹 **Title:** {post.title}")
             print(f"   ✏️  Author: {post.author}")
@@ -47,6 +51,9 @@ def fetch_latest_posts(subreddit_name):
 
     except prawcore.exceptions.RequestException:
         print("❌ Network Error: Unable to connect to Reddit API. Check your internet connection.")
+
+    except Exception as e:
+        print(f"❌ Unexpected/Unhandled Error: {e}")
 
 
 if __name__ == "__main__":
