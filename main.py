@@ -9,7 +9,7 @@ REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
 REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
 REDDIT_USERNAME = os.getenv('REDDIT_USERNAME')
 REDDIT_PASSWORD = os.getenv('REDDIT_PASSWORD')
-USER_AGENT = "MyRedditBot/1.0 by radu07"
+USER_AGENT = f"MyRedditBot/1.0 by {REDDIT_USERNAME}"
 
 
 def fetch_latest_posts(subreddit_name):
