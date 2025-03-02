@@ -65,12 +65,12 @@ Fetching latest 5 posts from r/python...
 
 ## 🛠️ Troubleshooting
 
-| Issue | Cause | Solution |
-|--------|---------------|-----------|
-| `❌ Authentication failed` | Incorrect credentials in `.env` | Double-check API keys and username/password |
-| `❌ API Error: 429` | Exceeded Reddit rate limit | Wait and try again later |
-| `❌ Error: Subreddit not found` | Typo or non-existent subreddit | Verify the subreddit name |
-| `❌ Network Error` | No internet connection | Check connection and retry |
+| Issue                                          | Cause | Solution |
+|------------------------------------------------|---------------|-----------|
+| `❌ Authentication failed`                      | Incorrect credentials in `.env` | Double-check API keys and username/password |
+| `❌ API Error: NNN`                             | Exceeded Reddit rate limit | Wait and try again later |
+| `❌ Error: Subreddit not found`                 | Typo or non-existent subreddit | Verify the subreddit name |
+| `❌ Network Error`                              | No internet connection | Check connection and retry |
 | `❌ Invalid credentials or unauthorized access` | Incorrect Client ID or Secret | Ensure credentials are correct in `.env` |
 
 
