@@ -1,4 +1,5 @@
 import os
+import textwrap
 import praw
 import prawcore.exceptions
 from dotenv import load_dotenv
@@ -29,11 +30,10 @@ def fetch_latest_posts(subreddit_name):
 
         print(f"\nFetching latest 5 posts from r/{subreddit_name}...\n")
         subreddit = reddit.subreddit(subreddit_name)
-
         for post in subreddit.new(limit=5):
             print(f"🔹 **Title:** {post.title}")
-            print(f"   ✏️  Author: {post.author}")
-            print(f"   👍  Upvotes: {post.score}\n")
+            print("{:>3}{:<10} {}".format("", "✏️  Author:", post.author))
+            print("{:>3}{:<10} {}".format("", "👍  Upvotes:", post.score))
 
     except praw.exceptions.MissingRequiredAttributeException as e:
         print(f"❌ Required configuration failed. Please check initialization: {e}")
