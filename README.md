@@ -54,7 +54,7 @@ Fetching latest 5 posts from r/python...
 
 🔹 **Title:** Python 3.12 Released!
    ✏️  Author: some_redditor
-   👍  Upvotes: 420
+   👍  Upvotes: 500
 
 🔹 **Title:** What's new in PRAW?
    ✏️  Author: another_redditor
